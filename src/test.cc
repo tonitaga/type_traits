@@ -6,7 +6,7 @@ const std::string SUCCESS("SUCCESS");
 const std::string ERROR("ERROR");
 
 template <typename T1, typename T2>
-void is_same_test(T1, T2, bool answer) {
+void is_same_test(bool answer) {
     if (s21::is_same_v<T1, T2> == answer) {
         std::cout << "is_same_test: " << SUCCESS << std::endl;
     } else {
@@ -114,8 +114,8 @@ void add_pointer_test() {
 }
 
 int main() {
-    is_same_test(1, 1, true);
-    is_same_test(1, 1., false);
+    is_same_test<int, int>( true);
+    is_same_test<int, float>(false);
     remove_const_test<const int, int>();
     remove_const_test<int, int>();
     remove_volatile_test<volatile int, int>();
